@@ -1,33 +1,91 @@
-<!DOCTYPE html><html></html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>3d Cube</title><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="3d-cube.css"><!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--><style>/* Project specific */ 
-.cube div {
-  text-align: center;
-  font-size: 24px;
-  border-radius: 3px;
-  background-color: rgba(77, 24, 35, 0.88);
-  color: #FDF3A7;
-}
-
-.cube h2 {
-  margin-top: 110px;
-}
-
-body {
-  height: 100%;
-  background: #242424;
-  padding-top: 10%;
-}
-.change {
-  text-align: center
-}
-</style></head><body class="experiment"><div class="change"><button onClick="cube.mode(&quot;flat&quot;);">flat</button><button onClick="cube.mode(&quot;3d&quot;);">3d</button></div><div id="cube" class="viewport swipe-cube"><div class="cube"><div class="top"><h2>!Top!</h2><p>&#9759;</p></div><div class="front"><h2>A</h2><p>&#9756; ~~ &#9758;</p></div><div class="right"><h2>B</h2><p>&#9756; ~~ &#9758;</p></div><div class="back"><h2>C</h2><p>&#9756; ~~ &#9758;</p></div><div class="left"><h2>D</h2><p>&#9756; ~~ &#9758;</p></div><div class="bottom"><h2>¡Bottom¡</h2><p>&#9757;</p></div></div></div><!--Zepto && HammerJS--><script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script><script src="cube.js"></script><script>/*
- * Hammer.JS jQuery plugin
- * version 0.3
- * author: Eight Media
- * https://github.com/EightMedia/hammer.js
- */
-Zepto.fn.hammer=function(a){return this.each(function(){var b=new Hammer(this,a),c=Zepto(this);c.data("hammer",b);for(var d=["hold","tap","doubletap","transformstart","transform","transformend","dragstart","drag","dragend","swipe","release"],e=0;e<d.length;e++)b["on"+d[e]]=function(a,b){return function(c){a.trigger(Zepto.Event(b,c))}}(c,d[e])})};
-
-$(function() {
-  window.cube = new swipeCube($('#cube'), 250);
-});
-</script></body>
+<!DOCTYPE html>
+<html></html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>3d Cube</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="3d-cube.css">
+  <style>
+    /* Project specific */ 
+    h1 {
+      margin-top: 0;
+      text-align: center;
+    }
+    html,body { height: 100%; }
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .cube div {
+      text-align: center;
+      font-size: 24px;
+      border-radius: 3px;
+      background-color: #ccc;
+      color: #FFF;
+      border: 1px solid #777;
+    }
+    .cube h2 {
+      margin-top: 110px;
+    }
+    
+    body {
+      height: 100%;
+      background: #f1f1f1;
+      padding: 5%;
+    }
+    .change {
+      text-align: center
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="cube" class="viewport swipe-cube">
+    <div class="cube">
+      <div class="top">
+        <h2>!Top!</h2>
+        <p>&#9759;</p>
+      </div>
+      <div class="front">
+        <h2>A</h2>
+        <div class="showme">Interact</div>
+        <p>&#9756; | &#9758;</p>
+      </div>
+      <div class="right">
+        <h2>B</h2>
+        <p>&#9756; | &#9758;</p>
+      </div>
+      <div class="back">
+        <h2>C</h2>
+        <p>&#9756; | &#9758;</p>
+      </div>
+      <div class="left">
+        <h2>D</h2>
+        <p>&#9756; | &#9758;</p>
+      </div>
+      <div class="bottom">
+        <h2>¡Bottom¡</h2>
+        <p>&#9757;</p>
+      </div>
+    </div>
+  </div>
+  <!--Zepto && HammerJS-->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.min.js"></script>
+  <script src="3d-cube.js"></script>
+  <script>
+    /*
+     * Hammer.JS jQuery plugin
+     * version 0.3
+     * author: Eight Media
+     * https://github.com/EightMedia/hammer.js
+     */
+    Zepto.fn.hammer=function(a){return this.each(function(){var b=new Hammer(this,a),c=Zepto(this);c.data("hammer",b);for(var d=["hold","tap","doubletap","transformstart","transform","transformend","dragstart","drag","dragend","swipe","release"],e=0;e<d.length;e++)b["on"+d[e]]=function(a,b){return function(c){a.trigger(Zepto.Event(b,c))}}(c,d[e])})};
+    
+    $(function() {
+      new Cube($('#cube'), 250);
+    });
+    
+  </script>
+</body>

@@ -1,4 +1,4 @@
-class SwipeCube
+class Cube
   action: false
   top: 0
   side: 0
@@ -237,4 +237,4 @@ class SwipeCube
 sign = (x) ->
   (if x then (if x < 0 then -1 else 1) else 0)
 
-window.swipeCube = SwipeCube
+window.Cube = Cube
