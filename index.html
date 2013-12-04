@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html></html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>3d Cube</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="playad/site.css"><!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <style>
+    .cube div {
+      text-align: center;
+      font-size: 24px;
+      border-radius: 3px;
+      background-color: rgba(77, 24, 35, 0.88);
+      color: #FDF3A7;
+      
+    }
+    
+    .cube h2 {
+      margin-top: 110px;
+    }
+    
+    body {
+      height: 100%;
+      background: #242424;
+      padding-top: 10%;
+    }
+    .change {
+      text-align: center
+    }
+    
+  </style>
+</head>
+<body class="experiment">
+  <div class="change">
+    <button onClick="cube.mode(&quot;flat&quot;);">flat</button>
+    <button onClick="cube.mode(&quot;3d&quot;);">3d</button>
+  </div>
+  <div id="cube" class="viewport swipe-cube">
+    <div class="cube">
+      <div class="top"> 
+        <h2>!Top!</h2>
+        <p>&#9759;</p>
+      </div>
+      <div class="front"> 
+        <h2>A</h2>
+        <p>&#9756; ~~ &#9758;</p>
+      </div>
+      <div class="right"> 
+        <h2>B</h2>
+        <p>&#9756; ~~ &#9758;</p>
+      </div>
+      <div class="back">
+        <h2>C</h2>
+        <p>&#9756; ~~ &#9758;</p>
+      </div>
+      <div class="left"> 
+        <h2>D</h2>
+        <p>&#9756; ~~ &#9758;</p>
+      </div>
+      <div class="bottom"> 
+        <h2>¡Bottom¡</h2>
+        <p>&#9757;</p>
+      </div>
+    </div>
+  </div>
+  <!--Zepto && HammerJS-->
+  <script src="playad/plugins.js"></script>
+  <script src="playad/cube.js"></script>
+  <script>
+    $(document).ready(function() {
+      window.cube = new swipeCube($('#cube'), 250);
+    });
+    
+  </script>
+</body>

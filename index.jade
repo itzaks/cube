@@ -1,0 +1,74 @@
+!!! 5
+html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title 3d Cube
+    meta(name='viewport', content='width=device-width')
+    link(rel='stylesheet', href='3d-cube.css')
+    //if lt IE 9
+      script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+    style
+      .cube div {
+        text-align: center;
+        font-size: 24px;
+        border-radius: 3px;
+        background-color: rgba(77, 24, 35, 0.88);
+        color: #FDF3A7;
+
+      }
+
+      .cube h2 {
+        margin-top: 110px;
+      }
+
+      body {
+        height: 100%;
+        background: #242424;
+        padding-top: 10%;
+      }
+      .change {
+        text-align: center
+      }
+
+  body.experiment
+    .change
+      button(onClick='cube.mode("flat");') flat
+      button(onClick='cube.mode("3d");') 3d
+    #cube.viewport.swipe-cube
+      .cube
+        .top
+          h2 !Top!
+          p &#9759;
+        .front
+          h2 A
+          p &#9756; ~~ &#9758;
+        .right
+          h2 B
+          p &#9756; ~~ &#9758;
+        .back
+          h2 C
+          p &#9756; ~~ &#9758;
+        .left
+          h2 D
+          p &#9756; ~~ &#9758;
+        .bottom
+          h2 ¡Bottom¡
+          p &#9757;
+
+    //Zepto && HammerJS
+    script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js')
+    script(src='cube.js')
+    script.
+      /*
+       * Hammer.JS jQuery plugin
+       * version 0.3
+       * author: Eight Media
+       * https://github.com/EightMedia/hammer.js
+       */
+      Zepto.fn.hammer=function(a){return this.each(function(){var b=new Hammer(this,a),c=Zepto(this);c.data("hammer",b);for(var d=["hold","tap","doubletap","transformstart","transform","transformend","dragstart","drag","dragend","swipe","release"],e=0;e<d.length;e++)b["on"+d[e]]=function(a,b){return function(c){a.trigger(Zepto.Event(b,c))}}(c,d[e])})};
+
+      $(function() {
+        window.cube = new swipeCube($('#cube'), 250);
+      });
+

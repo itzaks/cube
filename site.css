@@ -1,0 +1,78 @@
+h1 {
+  margin-top: 0;
+  text-align: center;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.swipe-cube.has-interacted .showme {
+  top: -250px;
+  opacity: 0;
+}
+.swipe-cube .showme {
+  opacity: 1;
+  position: relative;
+  transition: all 400ms ease-in;
+  font-size: 1.6em;
+  text-align: center;
+  font-family: Helvetica, Arial;
+  color: #fff;
+  font-weight: bold;
+  background: rgba(24,24,32,0.71);
+  width: 77%;
+  margin: 56% auto;
+  border-radius: 10px;
+  padding: 20px 5px;
+  box-shadow: 0 1px #000;
+  border: 1px solid rgba(255,255,255,0.24);
+}
+.swipe-cube.viewport,
+.swipe-cube .viewport {
+  position: relative;
+  margin: 0 auto 40px;
+  border: 1px solid rgba(255,255,255,0.5);
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+}
+.swipe-cube.viewport.is-flat,
+.swipe-cube .viewport.is-flat {
+  overflow: hidden;
+}
+.swipe-cube.viewport.is-flat .cube > div,
+.swipe-cube .viewport.is-flat .cube > div {
+  float: left;
+  position: relative;
+}
+.swipe-cube.viewport.is-flat .cube > div.top,
+.swipe-cube .viewport.is-flat .cube > div.top {
+  float: right;
+}
+.swipe-cube .cube {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-transition: -webkit-transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transform-style: preserve-3d;
+  -moz-transition: -moz-transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transform-style: preserve-3d;
+}
+.swipe-cube .cube.dragging {
+  -webkit-transition: none;
+  -moz-transition: none;
+}
+.swipe-cube .cube > div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-size: 1em;
+  line-height: 1em;
+  cursor: pointer;
+  background-size: 100%;
+}
