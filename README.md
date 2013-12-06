@@ -5,7 +5,7 @@ A swipable 3D cube in css and html.
 
 ###Dependencies
 `zepto.js` `hammer.js`
-Also: http://xoxco.com/projects/code/dragswipe/zepto.hammer.js (zepto hammer js plugin)
+Also: [zepto.hammer.js](http://xoxco.com/projects/code/dragswipe/zepto.hammer.js)
 
 ###Demo
 http://itzaks.github.io/cube/
